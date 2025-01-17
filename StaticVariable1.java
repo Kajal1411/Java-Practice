@@ -1,6 +1,6 @@
 class demo
 {
-public int rollno=10;
+public static int rollno=10;
 void change()
 {
 rollno++;
