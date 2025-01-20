@@ -23,9 +23,9 @@ result=result+(int)Math.pow(rem,count);
 num=num/10;
 }
 if(result==originalno)
-System.out.println("Armstrong");
+System.out.println(" given number is Armstrong");
 else
-System.out.println("Not Armstrong");
+System.out.println("given number is Not Armstrong");
 }
 }
 
