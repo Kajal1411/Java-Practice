@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.io.*;
+class ExcepHandling2
+{
+public static void main(String args[])
+{
+int[] a=new int[5];
+int i;
+Scanner sc=new Scanner(System.in);
+
+try
+{
+System.out.println("Enter array elements:");
+for(i=0;i<=5;i++)
+{
+a[i]=sc.nextInt();
+}
+}
+
+catch(Exception e)
+{
+System.out.println(e);
+}
+
+for(i=0;i<=4;i++)
+{
+System.out.println(a[i]);
+}
+
+}
+}
