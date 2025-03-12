@@ -1,0 +1,40 @@
+import java.io.*;
+class ExcepHandling10
+{
+public static void main(String args[])
+{
+FileInputStream fis=null;
+
+try
+{
+fis=new FileInputStream("abc.txt");
+}
+
+catch(FileNotFoundException e)
+{
+System.out.println(e);
+System.out.println("File not exist");
+
+}
+
+finally
+{
+try
+{
+if(fis!=null)
+{
+fis.close();
+}
+else
+{
+System.out.println("Error while closing");
+}
+}
+catch(IOException e)
+{
+e.printStackTrace();
+}
+}
+
+}
+}
