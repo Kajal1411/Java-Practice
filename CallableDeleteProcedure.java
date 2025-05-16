@@ -16,3 +16,12 @@ public class CallableDeleteProcedure {
         con.close();
 	}
 }
+
+//Procedure
+
+/*
+CREATE OR REPLACE PROCEDURE DeleteRecord(eid in number) is 
+begin
+delete from procedure2 where id=eid;
+end;
+*/

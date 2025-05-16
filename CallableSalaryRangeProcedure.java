@@ -27,3 +27,13 @@ public class CallableSalaryRangeProcedure {
 		con.close();
 	}
 }
+
+//Procedure
+
+/*
+CREATE OR REPLACE PROCEDURE SalaryRange(minsal in number,maxsal in number,empcursor out sys_refcursor) is 
+begin
+open empcursor for
+select * from table1 where salary between minsal and maxsal;
+end;
+*/

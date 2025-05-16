@@ -24,3 +24,12 @@ public class CallableStatSararyAddProcedure {
 	}
 
 }
+
+//Procedure
+
+/*
+create or replace procedure AddSalary(eid1 in number,eid2 in number,total out number) is
+begin
+select sum(salary) into total from table1 where id=eid1 or id =eid2;
+end;
+*/

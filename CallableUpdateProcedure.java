@@ -19,3 +19,12 @@ public class CallableUpdateProcedure {
 	}
 
 }
+
+//Procedure
+
+/*
+CREATE OR REPLACE PROCEDURE UpdateData(eid in number,ename in varchar,esalary in number) is 
+begin
+update table1 set name=ename,salary=esalary where id=eid;
+end;
+*/

@@ -36,3 +36,12 @@ public class CallableStatProcedure1 {
 	}
 
 }
+
+//Procedure
+
+/*
+CREATE OR REPLACE PROCEDURE InsertRecord(id in number,name in varchar2) is 
+begin
+insert into procedure2 values(id,name);
+end;
+*/
