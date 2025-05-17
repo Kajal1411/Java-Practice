@@ -7,6 +7,11 @@ This repository is created to help me practice and improve my Java programming s
 - User Input/Output: Code examples for working with user input, displaying output, and basic file handling.<br>
 - Practice Challenges: Small coding challenges to test and improve Java knowledge. <br>
 - File Handling <br>
+- Inner Class <br>
+- Regular Expression <br>
 - Exception Handling <br>
 - Multithreading <br>
-- Collection
+- Collection <br>
+- JDBC <br>
+- Servlet
+
