@@ -21,3 +21,18 @@ public class CallableStatAddSalaryFunction {
 	}
 
 }
+
+//Function
+
+/*
+create or replace function AddEmpSalary(eid1 number,eid2 number)
+return number 
+as
+esal1 number;
+esal2 number;
+begin
+select salary into esal1 from table1 where id=eid1;
+select salary into esal2 from table1 where id=eid2;
+return esal1+esal2;
+end;
+*/

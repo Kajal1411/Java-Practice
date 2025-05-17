@@ -20,3 +20,22 @@ public class CallableStatStuPerFunction {
 	}
 
 }
+
+//Function
+
+/*
+create or replace function studentPer(eid number)
+return number
+as
+a1 number;
+a2 number;
+a3 number;
+a4 number;
+begin
+select m1 into a1 from student where id=eid;
+select m2 into a2 from student where id=eid;
+select m3 into a3 from student where id=eid;
+select m4 into a4 from student where id=eid;
+return (a1+a2+a3+a4)/4;
+end;
+*/

@@ -19,3 +19,16 @@ public class CallableStatTotalSalaryFunction {
 	}
 
 }
+
+//Function
+
+/*
+create or replace function AddSal 
+return number
+as
+total number;
+begin
+select sum(salary) into total from table1;
+return total;
+end;
+*/
