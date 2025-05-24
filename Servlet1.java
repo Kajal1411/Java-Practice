@@ -39,3 +39,18 @@ public class Servlet1 extends HttpServlet{
 		
 	}
 }
+
+
+
+//Demo.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Hello</h1>
+<a href="firstServlet">Click</a>
+</body>
+</html>
