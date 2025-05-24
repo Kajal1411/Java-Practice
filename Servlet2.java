@@ -52,3 +52,21 @@ public class Servlet2 extends HttpServlet{
 	}
 }
 
+//Login.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="SecondServlet">
+<label for="email"><b>Email:</b></label><br>
+<input type="text" name="email" id="email" placeholder="Enter your email"> <br><br>
+<label for="password"><b>Password:</b></label><br>
+<input type="text" name="password" id="password" placeholder="Enter your Password"> 
+<br><br>
+<button type="submit">Login</button><br><br><br>
+</form>
+</body>
+</html>
