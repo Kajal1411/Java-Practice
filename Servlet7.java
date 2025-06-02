@@ -16,3 +16,27 @@
 </form>
 </body>
 </html>
+
+//aboutus.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Welcome to About Us Page!!!</h1>
+</body>
+</html>
+
+//contactus.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Welcome to Contactt Us Page!!!</h1>
+</body>
+</html>
