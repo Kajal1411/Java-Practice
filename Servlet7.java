@@ -40,3 +40,17 @@
 <h1>Welcome to Contactt Us Page!!!</h1>
 </body>
 </html>
+
+//welcome.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Welcome</h1>
+<a href="aboutus.html">AboutUs</a>
+<a href="contactus.html">ContactUs</a>
+</body>
+</html>
