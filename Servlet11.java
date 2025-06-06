@@ -57,3 +57,40 @@ public class Test extends HttpServlet{
 		
 	}
 }
+
+
+//Test2.java
+package myPack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+//Annotation
+//@WebServlet("/Test2");
+public class Test2 extends HttpServlet{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		out.print("<html><body>");
+		HttpSession session=request.getSession();
+		String n=(String) session.getAttribute("uname");
+		String p=(String) session.getAttribute("upass");
+		out.print("Your Username:"+n);
+		out.print("Your Password:"+p);
+		out.print("</body></html>");
+		
+	}
+
+}
