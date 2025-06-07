@@ -19,7 +19,7 @@
 </body>
 </html>
 
-//Servet1.java
+//Test1.java
 package myPack;
 
 import java.io.IOException;
@@ -51,6 +51,40 @@ public class Test1 extends HttpServlet{
 		response.addCookie(ck);
 		ck=new Cookie("upass",pass);
 		response.addCookie(ck);
+		
+		out.print("</body></html>");
+		
+	}
+
+}
+
+//Test2.java
+package myPack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Test2 extends HttpServlet{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		out.print("<html><body>");
+		
+		Cookie ck[]=request.getCookies();
+		out.print("Your Username:"+ck[0].getValue());
+		out.print("Your Password:"+ck[1].getValue());
 		
 		out.print("</body></html>");
 		
