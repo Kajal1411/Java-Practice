@@ -113,9 +113,7 @@ public class Test2 extends HttpServlet{
   <servlet-mapping>
     <servlet-name>first</servlet-name>
     <url-pattern>/first</url-pattern>
-  </servlet-mapping>
-  
-  
+  </servlet-mapping> 
   
    <servlet>
     <servlet-name>second</servlet-name>
