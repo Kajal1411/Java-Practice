@@ -54,3 +54,33 @@ public class Test1 extends HttpServlet{
 
 
 }
+
+
+//Test2.java
+package myPack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Test2 extends HttpServlet{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		//getting value from hidden field
+		String name=request.getParameter("name");
+		out.print("<html><body>");
+		out.print("Hello"+name);
+		out.print("</body></html>");	
+	}
+
+}
