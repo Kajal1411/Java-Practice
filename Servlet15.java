@@ -123,8 +123,49 @@ public class MyServletContextListner implements ServletContextListener{
 	        System.out.println("ServletContext destroyed");
 	        System.out.println("Database connection settings cleaned up");
 	}
-
-	
-	
-
 }
+
+
+//web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>DynamicProjServletEventHandling</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+<servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>myPack.MyServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/MyServlet</url-pattern>
+</servlet-mapping>
+
+      <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>hr</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>pass</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>myPack.MyServletContextListner</listener-class>
+    </listener>
+    
+</web-app>
