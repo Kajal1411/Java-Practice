@@ -17,3 +17,33 @@
 </form>
 </body>
 </html>
+
+
+//index.jsp
+package myPack;
+
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+public class MyListnerCount implements  HttpSessionListener{
+	
+	private static int activeUsers=0;
+	
+	public void sessionCreated(HttpSessionEvent e)
+	{
+		activeUsers++;
+		System.out.println("Session created. Active Users:"+activeUsers);
+	}
+	
+	public void sessionDestroyed(HttpSessionEvent e)
+	{
+		activeUsers--;
+		System.out.println("Session destroyed. Active Users:"+activeUsers);
+	}
+	
+	public static int getActiveUsers()
+	{
+		return activeUsers;
+	}
+
+}
