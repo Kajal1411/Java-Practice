@@ -57,3 +57,33 @@ public class Test extends HttpServlet{
 	}
 
 }
+
+
+//Event.java
+package myPack;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+public class Event implements HttpSessionListener{
+    
+    ServletContext context=null;  
+    static int total=0,current=0;  
+      
+    public void sessionCreated(HttpSessionEvent e) {  
+    total++;  
+    current++;  
+      
+    context=e.getSession().getServletContext();  
+    context.setAttribute("totalusers", total);  
+    context.setAttribute("currentusers", current);  
+      
+    }  
+  
+    public void sessionDestroyed(HttpSessionEvent e) {  
+        current--;  
+        context.setAttribute("currentusers",current);  
+    }  
+
+}
