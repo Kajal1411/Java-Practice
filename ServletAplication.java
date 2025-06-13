@@ -171,3 +171,72 @@ public class Login extends HttpServlet{
 	}
 
 }
+
+
+//Student.java
+package myPack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class Student extends HttpServlet{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		out.print("<html><body>");
+		
+		HttpSession session=request.getSession();
+		String firstname=(String) session.getAttribute("firstname");
+		String lastname=(String) session.getAttribute("lastname");
+		String username=(String) session.getAttribute("username");
+		String password=(String) session.getAttribute("password");
+		
+		String uname=request.getParameter("uname");
+		String upass=request.getParameter("upass");
+		
+		
+		if(username.equals(uname) && password.equals(upass))
+		{
+			out.print("Wecome! "+firstname+" "+lastname);
+		    out.print("<br><br>");
+			out.print("<form action='Marks'>");
+		    out.print("<button type='submit'>Enter Marks</button>");
+		    out.print("</form>");
+	        	
+		}
+		else
+		{
+			out.print("Invalid username or password!!! Please try again!!!");
+		    out.print("<br><br>");
+			out.print("<form action='Student'>");
+			out.print("<lable for='uname'><b>Username:</b></lable><br>");
+			out.print("<input type='text' name='uname'><br><br>");
+			out.print("<lable for='upass'><b>Password:</b></lable><br>");	
+			out.print("<input type='password' name='upass'><br><br>");	
+			out.print("<button type='submit'>Login</button>");
+			out.print("</form>");
+		}
+		
+		
+		out.print("</body></html>");
+	}
+
+}
