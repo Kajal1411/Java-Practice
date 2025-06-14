@@ -240,3 +240,51 @@ public class Student extends HttpServlet{
 	}
 
 }
+
+//Marks.java
+package myPack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class Marks extends HttpServlet{
+	
+	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		out.print("<html><body>");
+		
+		HttpSession session=request.getSession();
+		String firstname=(String) session.getAttribute("firstname");
+		String lastname=(String) session.getAttribute("lastname");
+
+		out.print("Wecome! "+firstname+" "+lastname);
+	    out.print("<br><br>");
+		
+		out.print("<form action='Result'>");
+		out.print("<lable for='java'><b>Enter marks for Java:</b></lable><br>");
+		out.print("<input type='number' name='java'><br><br>");
+		out.print("<lable for='cpp'><b>Enter marks for Cpp:</b></lable><br>");
+		out.print("<input type='number' name='cpp'><br><br>");
+		out.print("<lable for='python'><b>Enter marks for Python:</b></lable><br>");
+		out.print("<input type='number' name='python'><br><br>");
+		out.print("<lable for='javascript'><b>Enter marks for Javascript:</b></lable><br>");
+		out.print("<input type='number' name='javascript'><br><br>");
+    	out.print("<button type='submit'>Calculate Percentage</button>");
+    	out.print("</form>");
+		
+		out.print("</body></html>");
+
+	}
+}
