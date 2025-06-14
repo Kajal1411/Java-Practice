@@ -393,3 +393,55 @@ public class Result extends HttpServlet{
 <h1>You are Logout!!!</h1>
 </body>
 </html>
+
+//web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>ServletApplication</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>first</servlet-name>
+    <servlet-class>myPack.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>first</servlet-name>
+    <url-pattern>/first</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Student</servlet-name>
+    <servlet-class>myPack.Student</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Student</servlet-name>
+    <url-pattern>/Student</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>Marks</servlet-name>
+    <servlet-class>myPack.Marks</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Marks</servlet-name>
+    <url-pattern>/Marks</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Result</servlet-name>
+    <servlet-class>myPack.Result</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Result</servlet-name>
+    <url-pattern>/Result</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
