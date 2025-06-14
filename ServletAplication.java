@@ -288,3 +288,96 @@ public class Marks extends HttpServlet{
 
 	}
 }
+
+//Result.java
+package myPack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Types;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class Result extends HttpServlet{
+	
+	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		out.print("<html><body>");
+		
+		HttpSession session=request.getSession();
+		String firstname=(String) session.getAttribute("firstname");
+		String lastname=(String) session.getAttribute("lastname");
+		String username=(String) session.getAttribute("username");
+		
+		out.print("Wecome! "+firstname+" "+lastname);
+	    out.print("<br><br>");
+		
+		String s1=request.getParameter("java");  
+		String s2=request.getParameter("cpp");
+		String s3=request.getParameter("python");  
+		String s4=request.getParameter("javascript");
+		
+		int java=Integer.parseInt(s1);
+		int cpp=Integer.parseInt(s2);
+		int python=Integer.parseInt(s3);
+		int javascript=Integer.parseInt(s4);
+		
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","pass");
+			PreparedStatement pst = con.prepareStatement("UPDATE servlet SET java=?, cpp=?, python=?, javascript=? WHERE username=?");
+			pst.setInt(1, java);
+			pst.setInt(2, cpp);
+			pst.setInt(3, python);
+			pst.setInt(4, javascript);
+			pst.setString(5, username);
+			pst.execute();
+			
+			CallableStatement cs=con.prepareCall("{?=call per(?)}");
+			cs.setString(2, username);
+			cs.registerOutParameter(1, Types.FLOAT);
+			cs.execute();
+			out.print("Percentage:"+cs.getFloat(1));
+			out.print("<br>");
+			if(cs.getFloat(1)>=35)
+			{
+				out.print("Result:Pass");
+				out.print("<br>");
+				out.print("You are Eligible for Government Exam");
+				out.print("<br>");
+				out.print("<br>");
+				out.print("<a href='https://www.india.gov.in'><button>Fill the Form</button></a>");
+				//out.print("<a href='https://www.india.gov.in'>Fill the Form</a>");
+			}
+			else
+			{
+				out.print("Result:Fail");
+				out.print("<br>");
+				out.print("You are Not Eligible for GovernmentExam!!!");
+				out.print("<br>");
+				out.print("<br>");
+				out.print("<a href='logout.html'><button>Logout</button></a>");
+			}
+			con.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		out.print("</body></html>");
+}
+}
