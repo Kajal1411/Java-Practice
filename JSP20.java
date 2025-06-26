@@ -1,11 +1,11 @@
-//Cube.java
+//Fact.java
 package myPack;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
-public class Cube extends TagSupport{
+public class Fact extends TagSupport{
 
 	/**
 	 * 
@@ -23,7 +23,13 @@ public class Cube extends TagSupport{
 	    JspWriter out=pageContext.getOut();  //to print on jsp file
 	    try
 	    {  
-	        out.print(number*number*number);  
+	    	int fact=1;
+	        while(number>=1)
+	        {
+	        	fact=fact*number;
+	        	number--;
+	        }
+	        out.print(fact);
 	    }
 	    catch(Exception e)
 	    {
@@ -32,7 +38,6 @@ public class Cube extends TagSupport{
 	      
 	    return SKIP_BODY;  
 	}  
-
 }
 
 
@@ -47,7 +52,7 @@ public class Cube extends TagSupport{
 </head>
 <body>
 <%@ taglib uri="WEB-INF/myTag.tld" prefix="m" %>  
-Cube of 2 is: <m:cube number="2"></m:cube>  
+Factorial of 5 is: <m:fact number="5"></m:fact>  
 </body>
 </html>
 
@@ -66,8 +71,8 @@ Cube of 2 is: <m:cube number="2"></m:cube>
   <description>A simple tab library for the examples</description>  
   
   <tag>  
-    <name>cube</name>  
-    <tag-class>myPack.Cube</tag-class>  
+    <name>fact</name>  
+    <tag-class>myPack.Fact</tag-class>  
     <attribute>  
     <name>number</name>  
     <required>true</required>  
