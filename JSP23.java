@@ -149,3 +149,47 @@ catch(Exception e)
 %>
 </body>
 </html>
+
+
+//DataStore.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%@ page import="myPack.Test1" %>
+<%@ page import="java.sql.*" %>
+
+<jsp:useBean id="t1" class="myPack.Test1" scope="session" />
+<jsp:setProperty property="*" name="t1" />
+
+<% 
+
+String uname=t1.getUname();
+String upass=t1.getUpass();
+
+try
+{
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con=DriverManager.getConnection("Jdbc:oracle:thin:@localhost:1521:xe","hr","pass");
+	PreparedStatement pst=con.prepareStatement("insert into login values(?,?)");
+	pst.setString(1,uname);
+	pst.setString(2,upass);
+	pst.executeUpdate();
+	con.close();
+}
+catch(Exception e)
+{
+	System.out.println(e);
+}
+
+response.sendRedirect("login.html");
+
+%>
+</body>
+</html>
