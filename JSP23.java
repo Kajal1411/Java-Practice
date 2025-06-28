@@ -54,7 +54,7 @@ public class Test2 implements Serializable {
 }
 
 
-//login.html
+//Registration.html
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,6 +73,25 @@ public class Test2 implements Serializable {
 <input type="text" name="uname"><br><br>
 <label for="upass">Password:</label><br>
 <input type="text" name="upass"><br><br>
+<button type="submit">Submit</button>
+</form>
+</body>
+</html>
+
+
+//login.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="loginProcess.jsp">
+<label for="uname">UserName:</label><br>
+<input type="text" name="name"><br><br>
+<label for="upass">Password:</label><br>
+<input type="text" name="pass"><br><br>
 <button type="submit">Submit</button>
 </form>
 </body>
