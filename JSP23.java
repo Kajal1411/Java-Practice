@@ -219,3 +219,16 @@ Password:      ${t1.upass}
 </form>
 </body>
 </html>
+
+
+//logout.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Logout...</h1>
+</body>
+</html>
