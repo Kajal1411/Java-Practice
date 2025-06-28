@@ -96,3 +96,56 @@ public class Test2 implements Serializable {
 </form>
 </body>
 </html>
+
+
+//loginProcess.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%@ page import="myPack.Test2" %>
+<%@ page import="java.sql.*" %>
+
+<jsp:useBean id="t2" class="myPack.Test2" scope="session" />
+<jsp:setProperty property="*" name="t2" />
+
+<%
+String name=t2.getName();
+String pass=t2.getPass();
+
+try
+{
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con=DriverManager.getConnection("Jdbc:oracle:thin:@localhost:1521:xe","hr","pass");
+	PreparedStatement ps = con.prepareStatement("SELECT * FROM login WHERE username = ? AND password = ?");
+    ps.setString(1, name);
+    ps.setString(2, pass);
+    ResultSet rs = ps.executeQuery();
+
+    if(rs.next())
+    {
+        response.sendRedirect("profile.jsp"); // valid login
+    }   
+    else
+    {
+    	out.print("Invalid username or password!!! Try again!!!");
+    	out.print("<br><br>");
+ %>
+        <%@ include file="login.html" %>
+<% 
+    }
+	con.close();
+}
+catch(Exception e)
+{
+	System.out.println(e);
+}
+%>
+</body>
+</html>
