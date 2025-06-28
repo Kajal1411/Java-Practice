@@ -193,3 +193,29 @@ response.sendRedirect("login.html");
 %>
 </body>
 </html>
+
+
+//Profile.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+Welcome to Profile!!!
+<br><br>
+<h2>User Details:</h2>
+
+Name:          ${t1.uname}  <br>
+Password:      ${t1.upass}
+
+<br><br>
+<form action="logout.html">
+<button type="submit">Logout</button>
+</form>
+</body>
+</html>
