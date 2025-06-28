@@ -52,3 +52,28 @@ public class Test2 implements Serializable {
         this.pass = pass;
     }
 }
+
+
+//login.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="DataStore.jsp">
+<label for="firstname">First Name:</label><br>
+<input type="text" name="firstname"><br><br>
+<label for="lastname">Last name:</label><br>
+<input type="text" name="lastname"><br><br>
+<label for="mob">Mobile:</label><br>
+<input type="text" name="mob"><br><br>
+<label for="uname">UserName:</label><br>
+<input type="text" name="uname"><br><br>
+<label for="upass">Password:</label><br>
+<input type="text" name="upass"><br><br>
+<button type="submit">Submit</button>
+</form>
+</body>
+</html>
